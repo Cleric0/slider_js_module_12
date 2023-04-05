@@ -131,7 +131,7 @@ body {
     text-transform: uppercase; 
     line-height: 25px;
     font-family: 'Yeseva One';
-    margin-bottom: 45px;
+    margin-bottom: 9px;
 }
 
 .cost {
@@ -142,7 +142,7 @@ body {
 }
 
 .box {
-    height: 107px;
+    height: 85px;
     margin-bottom: 34px;    
     color: #FFFFFF;
 }
