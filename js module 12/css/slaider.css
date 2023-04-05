@@ -1,0 +1,235 @@
+/*
+    Удалите все стили "User-Agent-Stylesheet", за исключением свойства "display"
+ - Часть "символ *" предназначена для устранения ошибки Firefox SVG sprite
+ */
+ *:where(:not(html, iframe, canvas, img, svg, video):not(svg *, symbol *)) {
+    all: unset;
+    display: revert;
+}
+
+/* Предпочтительное значение box-sizing  */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/* Повторно примените указатель курсора для привязки тегов */
+a, button {
+    cursor: revert;
+}
+
+/*  Удалить стили списка (маркеры/цифры(bullets/numbers) */
+ol, ul, menu {
+    list-style: none;
+}
+
+/* Чтобы изображения не могли превышать свой контейнер */
+img {
+    max-width: 100%;
+}
+
+/* удаляет интервал между ячейками в таблицах */
+table {
+    border-collapse: collapse;
+}
+
+/* вернуть свойство "пробел" для элементов текстовой области в Safari */
+textarea {
+    white-space: revert;
+}
+
+/* минимальный стиль, позволяющий стилизовать измерительный элемент */
+meter {
+    -webkit-appearance: revert;
+    appearance: revert;
+}
+
+/* сброс непрозрачности текста по умолчанию для заполнителя ввода */
+::placeholder {
+    color: unset;
+}
+
+/*исправлена функция атрибута "скрытый".
+ отображение:возврат; возврат к элементу вместо атрибута
+  fix the feature of 'hidden' attribute.
+   display:revert; revert to element instead of attribute */
+:where([hidden]) {
+    display: none;
+}
+
+/*исправлена ошибка в браузерах Chromium
+ - исправление для атрибута редактирования содержимого будет работать должным образом.
+  revert for bug in Chromium browsers
+   - fix for the content editable attribute will work properly. */
+:where([contenteditable]:not([contenteditable="false"])) {
+    -moz-user-modify: read-write;
+    -webkit-user-modify: read-write;
+    overflow-wrap: break-word;
+    -webkit-line-break: after-white-space;
+    line-break: auto;
+}
+
+/* применить обратно функцию перетаскивания - существует только Chromium and Safari */
+:where([draggable="true"]) {
+    -webkit-user-drag: element;
+}
+
+ol, ul, menu {
+    list-style: none;
+}
+
+body {
+    background-color: #131313;
+}
+
+.projects-cont {
+    max-width: 1440px;
+    margin: 0 auto;
+
+}
+.projects {
+    margin: 107px 134px 125px 134px;
+    display: grid;
+    grid-template-columns: 442px 679px;
+    justify-content: space-between;
+}
+
+.title-projects {
+    color: #E3B873;
+    line-height: 37px;
+    font-size: 27px;
+    text-transform: uppercase;
+    padding-top: 69px;
+    padding-bottom: 34px;
+    font-family: 'Yeseva One';
+    width: 161px;
+    display: inline-block;
+}
+
+.line {
+    display: inline-block;
+    width: 92px;
+    height: 1px;
+    background-color: #E3B873;
+}
+
+.project-offer {
+    color: #FFFFFF;
+    font-size: 14px;
+    line-height: 27px;
+    margin-bottom: 42px;
+}
+.options {
+    display: grid;
+    grid-template-columns: 200px 200px;
+
+}
+.option {
+    color: #E3B873;
+    font-size: 18px;
+    text-transform: uppercase; 
+    line-height: 25px;
+    font-family: 'Yeseva One';
+    margin-bottom: 45px;
+}
+
+.cost {
+    font-family: 'Nunito Sans';
+    font-size: 13px;
+    line-height: 21px;
+    color: #FFFFFF;
+}
+
+.box {
+    height: 107px;
+    margin-bottom: 34px;    
+    color: #FFFFFF;
+}
+
+.list-city {
+    display: grid;
+    justify-content: space-between;
+    grid-template-columns: 186px 104px 190px;
+}
+.city-linc {
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.3);
+    text-transform: uppercase; 
+    line-height: 19px;
+    font-family: 'Yeseva One';
+    cursor: pointer;
+}
+
+.city-linc.active {
+    color: #E3B873;
+    text-transform: uppercase; 
+    line-height: 19px;
+    font-family: 'Yeseva One';
+    font-size: 14px;
+    border-bottom: 1px solid;
+    padding-bottom: 6px;
+}
+
+.slider_img {
+    position: relative;
+    width: 679px;
+    height: 472px;
+    margin: 52px auto;
+}
+
+.slider_img .image{
+    background-size: cover;
+    background-position: center center;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    opacity: 0;
+    transition: opacity 800ms ease;
+}
+
+.slider_img .image.active{
+    opacity: 1;
+}
+
+.left {
+    background-image: url(img/circle1.svg);
+    display: inline-block;    
+    width: 42px;
+    height: 14px;
+    cursor: pointer;
+}
+.right {
+    background-image: url(img/circle2.svg);
+    display: inline-block;    
+    width: 42px;
+    height: 14px;
+    margin-left: 12px;
+    margin-left: 122px;    
+    cursor: pointer;
+}
+
+.slider__dots {
+    display: flex;
+    justify-content: center;
+    width: 73px;
+    margin-left: 69px;
+    position: absolute;
+    transform:translate(0,-16px)
+}
+  
+.slider__dots-item {
+    width: 9px;
+    height: 9px;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    margin: 0 5px;
+    cursor: pointer;
+    transition: 0.4s ease;
+}
+  
+.slider__dots-item:hover, .slider__dots-item.active {
+    background: #FFFFFF;
+}
