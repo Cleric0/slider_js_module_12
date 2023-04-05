@@ -195,14 +195,14 @@ body {
 }
 
 .left {
-    background-image: url(img/circle1.svg);
+    background-image: url(../img/circle1.svg);
     display: inline-block;    
     width: 42px;
     height: 14px;
     cursor: pointer;
 }
 .right {
-    background-image: url(img/circle2.svg);
+    background-image: url(../img/circle2.svg);
     display: inline-block;    
     width: 42px;
     height: 14px;
